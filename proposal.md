@@ -392,3 +392,30 @@ passlib[bcrypt]
 | **Phase 4: Authentication & Security** | Implement JWT & OAuth2 authentication, migrate permission models, and enforce security enhancements. | **July 26 - August 5, 2025** |
 | **Phase 5: Optimization & Deployment** | Redis caching, WebSocket support, performance benchmarking, Dockerized deployment, final API documentation. | **August 6 - August 15, 2025** |
 | **Final Evaluation** | Testing, bug fixes, mentor reviews, performance audits, final documentation submission. | **August 16 - August 25, 2025** |
+
+### **VIII. Unit Testing Strategy**
+
+A robust testing framework is crucial for the success of this migration. The testing strategy will include:
+
+- **Framework:** Utilize `pytest` along with `pytest-asyncio` to support asynchronous testing.
+- **API Testing:** Validate that each FastAPI route behaves as expected and meets performance benchmarks.
+- **Database Testing:** Ensure data integrity post-migration by comparing outcomes with baseline results from the current Django system.
+- **Performance Testing:** Conduct load tests to confirm that the new endpoints achieve response times below 100ms.
+- **Security Testing:** Validate the effectiveness of the new authentication mechanisms and error-handling routines.
+
+Each test case will be thoroughly documented, with fixtures set up to simulate the necessary environments and ensure reproducibility.
+
+## **IX. Expectations from Mentor**
+
+I am always looking to learn and improve upon my mistakes. I would like my mentors to provide constructive feedback, so we can work together to make my project better. This gives me the opportunity to collaborate with them and learn from their experiences as professionals in this field. I would also love to understand their motivations for working with the IHR and learn about their career journeys.
+
+## **X. Other Commitments**
+
+During the GSoC period, my primary focus will be on this project. I do not have any full-time commitments that would interfere with my ability to complete the expected deliverables. However, I may occasionally work on personal development projects or engage in my college studies, especially during exam periods.
+
+## **XI. Future Plans After GSoC**
+
+After the GSoC period is over, I plan to continue contributing to the IHR project by maintaining and improving the backend infrastructure. I am also interested in exploring opportunities in backend system architecture, distributed computing, and cloud-native development. Additionally, I would love to mentor future GSoC participants and help them navigate the program, as I will have firsthand experience of the challenges and learning opportunities it offers.
+
+---
+
