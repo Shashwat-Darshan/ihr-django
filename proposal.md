@@ -1,4 +1,6 @@
-# **I. About Me**
+# Gsoc 
+
+## **I. About Me**
 
 **Name:** Shashwat Darshan\
 **Email:** [shashwatdarshan153@gmail.com](mailto\:shashwatdarshan153@gmail.com)\
@@ -11,7 +13,7 @@ I am an enthusiastic software developer with a deep passion for backend technolo
 
 ---
 
-# **II. Why I Decided to Work for IHR**
+## **II. Why I Decided to Work for IHR**
 
 I am thrilled at the prospect of contributing to the Internet Health Report (IHR) project because it presents a combination of complex technical challenges and a mission-driven approach that strongly aligns with my skills and values. The chance to migrate the IHR API from an outdated Django framework to the modern FastAPI, streamline database management using Bash scripts, and deploy the application efficiently through Docker aligns perfectly with my technical expertise in Django, FastAPI, SQL, and containerization technologies.
 
@@ -19,13 +21,13 @@ Beyond the technical aspects, I am deeply passionate about the project’s overa
 
 ---
 
-# **III. Project Title**
+## **III. Project Title**
 
 **Migrating IHR Backend from Django 2.2 to FastAPI for Improved Performance, Scalability, and Maintainability**
 
 ---
 
-# **IV. Abstract**
+## **IV. Abstract**
 
 The current IHR backend is built on Django 2.2.27, an outdated framework that lacks modern asynchronous capabilities. This limitation causes performance bottlenecks under high-concurrency conditions and makes the codebase increasingly difficult to maintain. Additionally, the existing system does not efficiently handle concurrent requests, leading to potential slowdowns during peak usage times.
 
@@ -33,7 +35,7 @@ My proposal is to migrate the IHR backend to FastAPI—a high-performance, async
 
 ---
 
-# **V. Key Objectives and Motivation**
+## **V. Key Objectives and Motivation**
 
 ### **Key Objectives**
 
@@ -51,7 +53,7 @@ My proposal is to migrate the IHR backend to FastAPI—a high-performance, async
 
 ---
 
-# **VI. Expected Outcomes**
+## **VI. Expected Outcomes**
 
 - **Substantial improvements in API performance** through asynchronous request handling and optimized query execution.
 - **A more modular, maintainable, and scalable backend architecture** that is easier to extend and optimize in the future.
@@ -59,7 +61,7 @@ My proposal is to migrate the IHR backend to FastAPI—a high-performance, async
 - **Stronger security measures** with JWT-based authentication, OAuth2 support, and improved input validation techniques.
 - **Improved system resilience and fault tolerance**, ensuring the IHR API can handle increasing workloads efficiently.
 
-## **Suggested Enhancements for Discussion**
+### **Suggested Enhancements for Discussion**
 
 While the core migration plan aligns with mentor guidance, additional improvements could further enhance the system’s efficiency and security. These could be proposed as stretch goals:
 
@@ -74,11 +76,11 @@ These enhancements will be discussed with mentors to assess feasibility and prio
 
 ---
 
-# **VII. Deliverables and Timeline**
+## **VII. Deliverables and Timeline**
 
 ## **Project Deliverables**
 
-### **Code Migration:**
+### Code Migration:
 
 - Migrate all Django views and API endpoints to FastAPI with async support.
 - Implement structured request handling and response validation using Pydantic models.
@@ -112,7 +114,7 @@ These enhancements will be discussed with mentors to assess feasibility and prio
 - Conduct security and performance audits to validate the migration’s success.
 - Auto-generate API documentation with FastAPI’s OpenAPI support for developer ease-of-use.
 
-# **Timeline and Implementation Plan**
+## **Timeline and Implementation Plan**
 
 ## **Community Bonding (May 8 - June 1, 2025)**
 
