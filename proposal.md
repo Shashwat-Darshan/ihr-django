@@ -29,7 +29,7 @@ Beyond the technical aspects, I am deeply passionate about the project’s overa
 
 The current IHR backend is built on Django 2.2.27, an outdated framework that lacks modern asynchronous capabilities. This limitation causes performance bottlenecks under high-concurrency conditions and makes the codebase increasingly difficult to maintain. Additionally, the existing system does not efficiently handle concurrent requests, leading to potential slowdowns during peak usage times.
 
-My proposal is to migrate the IHR backend to FastAPI—a high-performance, asynchronous web framework designed for modern API development. This migration will significantly enhance API response times, simplify the system’s architecture, improve security, and auto-generate comprehensive API documentation using FastAPI’s native OpenAPI support. Additionally, replacing Django ORM-based database management with optimized SQLAlchemy queries will lead to more efficient and flexible database interactions. This transition will ultimately result in a faster, more scalable, and easier-to-maintain backend infrastructure, ensuring that the IHR project remains sustainable and adaptable to future demands.
+My proposal is to migrate the IHR backend to FastAPI—a high-performance, asynchronous web framework designed for modern API development. This migration will significantly enhance API response times, simplify the system’s architecture, improve security, and auto-generate comprehensive API documentation using FastAPI’s native OpenAPI support. Furthermore, I will implement Bash scripts for database initialization, management, and schema migrations, as requested, to improve maintainability and streamline database operations. This transition will ultimately result in a faster, more scalable, and easier-to-maintain backend infrastructure, ensuring that the IHR project remains sustainable and adaptable to future demands.
 
 ---
 
@@ -38,7 +38,7 @@ My proposal is to migrate the IHR backend to FastAPI—a high-performance, async
 ### **Key Objectives**
 
 - **API Migration:** Migrate all Django API endpoints to FastAPI using asynchronous processing to reduce latency, increase throughput, and improve scalability.
-- **Database Management:** Replace Django ORM-based database management with optimized SQLAlchemy queries and manage migrations using Alembic for greater flexibility and performance.
+- **Database Management:** Implement Bash scripts for database initialization, schema migrations, and management, ensuring efficient and maintainable database operations.
 - **Containerization & Documentation:** Dockerize the FastAPI application for seamless deployment across different environments and auto-generate comprehensive API documentation using FastAPI’s built-in OpenAPI support.
 - **Security Enhancements:** Implement robust authentication and request validation by integrating JWT-based authentication, OAuth2 endpoints, and role-based access control (RBAC) mechanisms.
 
@@ -58,7 +58,8 @@ My proposal is to migrate the IHR backend to FastAPI—a high-performance, async
 - **Enhanced developer experience** through automatic API documentation, type safety, and better error handling.
 - **Stronger security measures** with JWT-based authentication, OAuth2 support, and improved input validation techniques.
 - **Improved system resilience and fault tolerance**, ensuring the IHR API can handle increasing workloads efficiently.
-
+- **Database Management**, Efficient and maintainable database management through the use of Bash scripts for initialization, migrations, and operations.
+    
 ## **Suggested Enhancements for Discussion**
 
 While the core migration plan aligns with mentor guidance, additional improvements could further enhance the system’s efficiency and security. These could be proposed as stretch goals:
