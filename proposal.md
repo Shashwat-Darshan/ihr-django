@@ -1,18 +1,17 @@
-
-# GSoC Proposal Revision
+# Gsoc
 
 ## **I. About Me**
 
 **Name:** Shashwat Darshan\
-**Email:** [shashwatdarshan153@gmail.com](mailto\:shashwatdarshan153@gmail.com)\
+**Email:** [shashwatdarshan153@gmail.com](mailto:shashwatdarshan153@gmail.com)\
 **GitHub:** [Shashwat-Darshan](https://github.com/Shashwat-Darshan)\
 **Location:** New Delhi, India\
 **Timezone:** GMT+5:30\
-**Resume:** View Here
+**Resume:** [Link](https://drive.google.com/file/d/1yvINpTtjALoGplp3KVKpDkokAqdEzDLo/view?usp=sharing)
+
 
 I am an enthusiastic software developer with a deep passion for backend technologies, system architecture, and high-performance computing. I have extensive hands-on experience with Python, Django, FastAPI, SQL, and containerization tools such as Docker. My technical foundation is built upon rigorous project-based learning and real-world applications, where I have successfully developed and optimized backend systems. Although my previous projects have been on a smaller scale, I am eager to undertake this significant migration project and work alongside experienced mentors at IHR to develop an efficient, high-performing, and maintainable backend architecture. I see this as an opportunity to further refine my technical capabilities, expand my problem-solving skills, and contribute meaningfully to an open-source initiative that impacts a global audience.
 
----
 
 ## **II. Why I Decided to Work for IHR**
 
@@ -20,587 +19,433 @@ I am thrilled at the prospect of contributing to the Internet Health Report (IHR
 
 Beyond the technical aspects, I am deeply passionate about the project’s overarching goal of enhancing internet resiliency and accessibility—two critical components in today’s connected world. By participating in this initiative, I will have the opportunity to collaborate with a diverse and global developer community, gain invaluable hands-on experience in large-scale system migration, and contribute to an essential tool that informs and empowers millions. The combination of technical challenge, real-world impact, and professional growth makes this a compelling and deeply rewarding endeavor for me.
 
----
+
 
 ## **III. Project Title**
 
-### Migrating IHR Backend from Django 2.2 to FastAPI for Improved Performance, Scalability, and Maintainability
+**Migrating IHR Backend from Django 2.2 to FastAPI for Improved Performance, Scalability, and Maintainability**
 
----
+
 
 ## **IV. Abstract**
 
 The current IHR backend is built on Django 2.2.27, an outdated framework that lacks modern asynchronous capabilities. This limitation causes performance bottlenecks under high-concurrency conditions and makes the codebase increasingly difficult to maintain. Additionally, the existing system does not efficiently handle concurrent requests, leading to potential slowdowns during peak usage times.
 
-My proposal is to migrate the IHR backend to FastAPI—a high-performance, asynchronous web framework designed for modern API development. This migration will significantly enhance API response times, simplify the system’s architecture, improve security, and auto-generate comprehensive API documentation using FastAPI’s native OpenAPI support. Furthermore, I will implement Bash scripts for database initialization, management, schema migrations, and seeding, as requested, to improve maintainability and streamline database operations. This transition will ultimately result in a faster, more scalable, and easier-to-maintain backend infrastructure, ensuring that the IHR project remains sustainable and adaptable to future demands.
+My proposal is to migrate the IHR backend to FastAPI—a high-performance, asynchronous web framework designed for modern API development. This migration will significantly enhance API response times, simplify the system’s architecture, improve security, and auto-generate comprehensive API documentation using FastAPI’s native OpenAPI support. Additionally, managing the database using optimized raw SQL executed via Bash scripts, as requested, will lead to more direct database interactions. This transition will ultimately result in a faster, more scalable, and easier-to-maintain backend infrastructure, ensuring that the IHR project remains sustainable and adaptable to future demands.
 
----
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## **V. Key Objectives and Motivation**
 
 ### **Key Objectives**
 
-- **API Migration:** Migrate all Django API endpoints to FastAPI using asynchronous processing to reduce latency, increase throughput, and improve scalability. All API endpoints should remain 100% compatible with the existing Django API.
-- **Database Management:** Implement Bash scripts for database initialization, schema migrations, management, and seeding, ensuring efficient and maintainable database operations using raw SQL.
-- **Containerization & Documentation:** Dockerize the FastAPI application for seamless deployment across different environments and auto-generate comprehensive API documentation using FastAPI’s built-in OpenAPI support.
-- **Security:** Maintain existing Django authentication during migration (token-based system → FastAPI JWT parity).
+-   **API Migration:** Migrate all Django API endpoints to FastAPI using asynchronous processing to reduce latency, increase throughput, and improve scalability.
+-   **Database Management:** Implement Bash scripts for database initialization, schema migrations, and management using raw SQL for greater flexibility and performance, following the project requirements.
+-   **Containerization & Documentation:** Dockerize the FastAPI application for seamless deployment across different environments and auto-generate comprehensive API documentation using FastAPI’s built-in OpenAPI support.
+-   **Security:** Maintain existing Django token authentication via JWT in FastAPI.
 
 ### **Motivation for Migration**
 
-- **Performance Bottlenecks:** The synchronous nature of Django’s views and ORM operations causes slow response times under heavy loads. Asynchronous processing in FastAPI will allow the system to handle a larger number of concurrent requests more efficiently.
-- **Maintainability Issues:** The current monolithic codebase is complex and difficult to maintain. Adopting a modular design with type-safe models will simplify the code and improve long-term maintainability. The codebase structure will be proposed to ensure maintainability.
-- **Scalability Constraints:** As data volume grows and user demand increases, the existing Django-based architecture struggles to scale. FastAPI’s support for asynchronous requests, combined with optimized database interactions using raw SQL, will significantly enhance the system’s scalability.
+-   **Performance Bottlenecks:** The synchronous nature of Django’s views and operations causes slow response times under heavy loads. Asynchronous processing in FastAPI will allow the system to handle a larger number of concurrent requests more efficiently.
+-   **Maintainability Issues:** The current monolithic codebase is complex and difficult to maintain. Adopting a modular design with type-safe models will simplify the code and improve long-term maintainability. The use of Bash scripts for DB management aligns with project goals but will require careful implementation for robust state tracking and error handling.
+-   **Scalability Constraints:** As data volume grows and user demand increases, the existing Django-based architecture struggles to scale. FastAPI’s support for asynchronous requests, combined with potentially optimized database interactions, will enhance the system’s scalability.
+-   **Security:** The modernization process will maintain a secure authentication mechanism using JWT, ensuring continuity and familiarity.
+![Migration Challenges and Solutions](https://raw.githubusercontent.com/Shashwat-Darshan/ihr-django/master/images/migration%20challenges%20and%20soln.png)
 
----
 
 ## **VI. Expected Outcomes**
 
-- **Substantial improvements in API performance** through asynchronous request handling and optimized query execution using raw SQL.
-- **A more modular, maintainable, and scalable backend architecture** that is easier to extend and optimize in the future. The codebase structure will be proposed to ensure maintainability.
-- **Enhanced developer experience** through automatic API documentation, type safety, and better error handling.
-- **Efficient and maintainable database management** through the use of Bash scripts for initialization, migrations, seeding, and operations.
-- **Improved system resilience and fault tolerance**, ensuring the IHR API can handle increasing workloads efficiently.
+-   **Substantial improvements in API performance** through asynchronous request handling and optimized query execution.
+-   **A more modular, maintainable, and scalable backend architecture** that is easier to extend and optimize in the future.
+-   **Enhanced developer experience** through automatic API documentation, type safety, and better error handling.
+-   **Improved system resilience and fault tolerance**, ensuring the IHR API can handle increasing workloads efficiently.
+-   **Performance Targets:**
+    * 95% of API endpoints respond under **200ms** at 1000 RPM
+    * Database initialization completes in < 30 seconds
 
----
+### Future Work (Subject to Mentor Approval)
 
-# Database Management with Bash Scripts
+-   [ ] CI/CD pipeline using GitHub Actions
+-   [ ] Enhanced monitoring with Prometheus/Grafana
+-   [ ] Integrate Celery for handling background tasks asynchronously
+-   [ ] WebSocket support for real-time features
+-   [ ] Kubernetes deployment configuration
+
+
+<br>
+## **Database Management with Bash Scripts**
 
 ## 1. Directory Structure
 
 ```bash
 ihr_fastapi/
-├── db_scripts/               # Bash scripts for database operations
-│   ├── init_db.sh            # Initializes tables, indexes, and constraints
-│   ├── migrate_db.sh         # Applies incremental SQL migrations
-│   ├── backup_db.sh          # Creates database backups
-│   ├── test_db.sh            # Runs integrity checks
-│   └── seed_db.sh            # Seeds initial database data
-└── sql/                      # SQL files
-    ├── schema/               # Base schema definitions
-    │   ├── 01_tables.sql     # Core tables (hegemony, asn, etc.)
-    │   └── 02_indexes.sql    # Indexes and constraints
-    └── migrations/           # Versioned migration files
+├── db_scripts/
+│   ├── init_db.sh
+│   ├── migrate_db.sh
+│   ├── backup_db.sh
+│   ├── test_db.sh
+│   └── seed_db.sh
+└── sql/
+    ├── schema/
+    │   ├── 01_tables.sql
+    │   └── 02_indexes.sql
+    └── migrations/
         ├── 20240601_add_hegemony_timebin_column.sql
         └── 20240615_alter_asn_table.sql
-```plaintext
-
-## 2. Script Implementation
-
-### `init_db.sh`
-
-```bash
-#!/bin/bash
-# Initialize database schema and seed data
-set -e # Exit on error
-
-# Load environment variables
-source .env
-
-# Execute schema files in order
-psql -v ON_ERROR_STOP=1 \
-  -U "$POSTGRES_USER" \
-  -d "$POSTGRES_DB" \
-  -f /sql/schema/01_tables.sql
-
-psql -v ON_ERROR_STOP=1 \
-  -U "$POSTGRES_USER" \
-  -d "$POSTGRES_DB" \
-  -f /sql/schema/02_indexes.sql
-
-echo "Database schema initialized successfully!"
-```plaintext
-
-### `migrate_db.sh`
-
-```bash
-#!/bin/bash
-# Apply pending migrations
-set -e
-
-for migration in $(ls /sql/migrations/*.sql | sort -V); do
-  echo "Applying migration: $migration"
-  psql -v ON_ERROR_STOP=1 \
-    -U "$POSTGRES_USER" \
-    -d "$POSTGRES_DB" \
-    -f "$migration"
-done
-```plaintext
-
-### `backup_db.sh`
-
-```bash
-#!/bin/bash
-# Creates database backups
-set -e
-
-timestamp=$(date +%Y%m%d_%H%M%S)
-backup_file="backup_${timestamp}.sql"
-
-pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -f "$backup_file"
-
-echo "Database backed up to $backup_file"
-```plaintext
-
-### `seed_db.sh`
-
-```bash
-#!/bin/bash
-# Seed initial database data
-set -e
-
-psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" <<EOF
-INSERT INTO hegemony (asn, timebin) VALUES (12345, NOW());
--- Add more seed data as needed
-EOF
-
-echo "Database seeded successfully!"
-```plaintext
-
-### `test_db.sh`
-
-```bash
-#!/bin/bash
-# Validate database state
-set -e
-
-# Check if hegemony table exists
-if ! psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "\d hegemony" &> /dev/null; then
-  echo "Error: hegemony table missing!"
-  exit 1
-fi
-
-echo "Database validation passed."
 ```
-
-## 3. SQL Schema Example
-
-**File: `sql/schema/01_tables.sql`**
-
-```sql
--- Recreate Django's hegemony table
-CREATE TABLE IF NOT EXISTS hegemony (
-  id SERIAL PRIMARY KEY,
-  asn INTEGER NOT NULL,
-  timebin TIMESTAMPTZ NOT NULL,
-  originasn INTEGER,
-  weight FLOAT
-);
-
--- Recreate indexes
-CREATE INDEX IF NOT EXISTS hegemony_timebin_idx ON hegemony(timebin);
-```
-
-## 4. Workflow Integration
-
-### **Docker Integration**
+*Note: Careful implementation will be required to ensure these scripts are robust, handle errors gracefully, and manage migration state effectively.*
+<br>
+<br>
+## **Docker Integration**
 
 **Dockerfile:**
 
 ```dockerfile
-FROM python:3.11
+FROM python:3.11-slim-buster
 
-# Copy scripts and SQL files
-COPY db_scripts/ /db_scripts/
-COPY sql/ /sql/
+WORKDIR /app
 
-# Set permissions
-RUN chmod +x /db_scripts/*.sh
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Run initialization during container startup
-CMD ["/db_scripts/init_db.sh && uvicorn app.main:app"]
+COPY ./app /app/app
+COPY ./db_scripts /app/db_scripts
+COPY ./sql /app/sql
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-#### **SQL Transaction Rollbacks**
+**docker-compose.yml:**
 
-```sql
--- sql/migrations/20240601_example.sql
-BEGIN;
-ALTER TABLE hegemony ADD COLUMN new_column INT;
--- On error: ROLLBACK;
-COMMIT;
+```yaml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+      # Add other necessary environment variables (e.g., JWT secret, POSTGRES_PASSWORD)
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Ensure password is set
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
 ```
 
-## 5. Error Handling
 
-- **Bash Scripts:** Use `set -e` to exit on errors and `-v ON_ERROR_STOP=1` in `psql`.
-- **SQL Files:** Wrap changes in transactions (`BEGIN;`/`COMMIT;`).
-- **Logging:** Redirect script output to logs (e.g., `init_db.sh 2> logs/db_errors.log`).
 
----
+## **Migration Strategy**
 
-## **Flowchart of Migration Process**
+A complete switch to FastAPI is the preferred migration strategy. The migration will be executed in a phased manner, focusing on migrating the backend component by component to ensure stability and maintainability.
 
-```mermaid
-flowchart TD;
-    A[Start] --> B[Analyze Current Django Codebase];
-    B --> C[Identify Endpoints and Database Models];
-    C --> D[Design Equivalent FastAPI Routes];
-    D --> E[Implement Asynchronous FastAPI Endpoints];
-    E --> F[Optimize Database Queries];
-    F --> G[Write Bash Scripts for Database Management];
-    G --> H[Dockerize FastAPI Application];
-    H --> I[Test and Debug];
-    I --> J[Deploy and Monitor];
-    J --> K[End]
+
+
+The migration will proceed component by component, starting with the database layer integration using Bash scripts, followed by the API endpoints, and then the authentication mechanisms.
+
+#### **Database Layer (Bash-based approach)**
+
+![image](https://raw.githubusercontent.com/Shashwat-Darshan/ihr-django/master/images/_-%20visual%20selection.png)
+### **1. Component-wise Migration**
+
+The database management will be handled primarily through Bash scripts for schema initialization, migrations, seeding, and general management, interacting with the PostgreSQL database using raw SQL, as specified in the project idea. **Emphasis will be placed on making these scripts robust, including error handling, logging, and clear state management (e.g., tracking applied migrations).** The FastAPI application will use `asyncpg` to interact with the database asynchronously, potentially executing SQL directly or invoking helper functions that utilize the defined SQL files/logic.
+
+#### **API Endpoints**
+
+Existing Django API endpoints will be migrated to FastAPI, leveraging asynchronous programming capabilities via `async`/`await` and `asyncpg`. The goal is to maintain 100% API compatibility during this transition.
+
+```python
+# Example using asyncpg directly (preferred for async)
+import asyncpg
+from fastapi import APIRouter, Depends, HTTPException
+from typing import List
+# Assuming a dependency function get_db_pool() provides an asyncpg pool
+# from app.core.database import get_db_pool
+
+router = APIRouter()
+
+@router.get("/hegemony/", response_model=List[dict])
+async def get_hegemony(timebin: str = None, pool: asyncpg.Pool = Depends(get_db_pool)):
+    # Migrate existing Django view logic to async
+    # Utilize asyncpg for database interactions
+    try:
+        # Example query (replace with actual logic based on SQL files)
+        query = "SELECT * FROM hegemony_data WHERE timebin = $1;" # Parameterized query
+        results = await pool.fetch(query, timebin)
+        # Convert asyncpg Records to dictionaries if needed for the response model
+        return [dict(record) for record in results]
+    except asyncpg.PostgresError as e:
+        # Proper logging should be added here
+        raise HTTPException(status_code=500, detail=f"Database error: {e}")
+    except Exception as e:
+        # Proper logging should be added here
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {e}")
 ```
 
----
+### **2. Migration Phases**
+*(This subsection outlines the phases described in detail in Section VII below)*
+
+1.  **Phase 1: Initial Setup and Core Database Scripting (2 weeks)**
+2.  **Phase 2: Database Scripting & Schema Conversion (3 weeks)**
+3.  **Phase 3: API Endpoint Migration (4 weeks)**
+4.  **Phase 4: Authentication and Security Implementation (2 weeks)**
+5.  **Phase 5: Optimization, Testing, and Deployment Prep (2 weeks)**
+
+### **3. Key Components to Migrate**
+
+1.  **Database Management:**
+    * Schema initialization (`init_db.sh`)
+    * Migrations (`migrate_db.sh` with state tracking)
+    * Backup and restoration (`backup_db.sh`, `restore_db.sh`)
+    * Database seeding (`seed_db.sh`)
+
+2.  **API Endpoints:** *(Examples)*
+    * `/hegemony/`
+    * `/hegemony/countries/`
+    * `/hegemony/asns/`
+    * User management endpoints (if applicable)
+
+3.  **Authentication:**
+    * Token-based auth → JWT (generation, validation middleware)
+    * Password hashing (`passlib`)
+    * Permissions logic
+
+### **4. Technical Considerations**
+
+```python
+# Requirements
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+pydantic>=2.0.0
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+redis>=4.5.0 # For caching implementation in Phase 5
+asyncpg>=0.29.0 # For asynchronous PostgreSQL interactions
+# psycopg2-binary # May be needed by other tools or for sync fallback/testing
+```
+
+
 
 ## **VII. Deliverables and Timeline**
 
 ## **Project Deliverables**
 
-### **Core Migration:**
+### Code Migration
 
-- Migrate all essential Django views and API endpoints to FastAPI with asynchronous support, ensuring 100% API endpoint compatibility.
-- Implement structured request handling and response validation using Pydantic models.
-- Manage database schema changes and versioning primarily using version-controlled SQL files and Bash scripts.
-- Maintain existing Django authentication during migration (token-based system → FastAPI JWT parity).
+![apiflow](https://raw.githubusercontent.com/Shashwat-Darshan/ihr-django/master/images/fast-api-flow.png)
 
-### **Key Enhancements:**
+-   Migrate all Django views and API endpoints to FastAPI with async support (`async`/`await`, `asyncpg`).
+-   Implement structured request handling and response validation using Pydantic models.
+-   Manage database schema changes and versioning with robust Bash scripts executing raw SQL (including state tracking and error handling).
 
-- Strengthen input validation and enforce security best practices.
-- Introduce caching mechanisms such as Redis to optimize frequently accessed database queries.
-- Conduct load testing to identify and address performance bottlenecks.
-- Containerize the FastAPI application using Docker for efficient deployment.
-- Maintain comprehensive project documentation, including migration guides and API documentation.
-- Implement extensive test coverage using `pytest` and `pytest-asyncio` for robustness.
-- Auto-generate API documentation with FastAPI’s OpenAPI support for developer ease-of-use.
+### **Security:**
 
-### **Potential Stretch Goals (Mentor Approval Required):**
+-   Implement secure JWT-based authentication to maintain parity with the existing Django system.
+-   Strengthen input validation and enforce security best practices (e.g., security headers).
+-   Implement basic rate limiting (if time permits within Phase 4).
 
-- [ ] Redis caching implementation
-- [ ] CI/CD pipeline setup
-- [ ] Advanced authentication (OAuth2)
+### **Performance Optimizations:**
+
+-   Introduce caching mechanisms using **Redis** to optimize frequently accessed database queries/API responses.
+-   Conduct load testing to identify potential bottlenecks and benchmark against targets.
+-   Leverage `asyncpg` connection pooling and asynchronous query execution.
+
+### **Deployment and Containerization:**
+
+-   Containerize the FastAPI application using Docker and Docker Compose for efficient development and deployment workflows.
+
+### **Documentation and Testing:**
+
+-   Maintain comprehensive project documentation: README, migration guides, API documentation (auto-generated via OpenAPI), Bash script usage (`DATABASE.md`), and system architecture details.
+-   Implement extensive test coverage using `pytest` and `pytest-asyncio` for robustness.
+-   Conduct security checks and performance audits to validate the migration’s success against objectives.
 
 ## **Timeline and Implementation Plan**
 
 ### **Community Bonding (May 8 - June 1, 2025)**
 
-#### **Goals:**
+* **Goals:** Understand the existing Django 2.2 codebase in detail, engage with mentors and discuss migration strategies, document current API behavior/dependencies/challenges, define key milestones and deliverables.
+![phase 0](https://raw.githubusercontent.com/Shashwat-Darshan/ihr-django/master/images/phase-0.png)
+* **Tasks Overview:**
+    * Study and analyze existing models (`models.py`) including `Hegemony`, `ASN`, `Country`, and database caching strategies.
+    * Review API endpoints in `views.py` such as network monitoring and hegemony analysis.
+    * Document authentication methods, database relationships, and performance bottlenecks.
+    * Prepare a high-level migration roadmap with mentors.
+    * Set up a development environment (Python, Docker, PostgreSQL, FastAPI basics).
+    * Contribute to any existing simple issues in the IHR codebase (if applicable) to familiarize with workflow.
+    * Have introductory calls with the mentors to align expectations.
+
+### **Phase 1: Core Setup (June 2 - June 15, 2025)**
+
+* **Goals:** Set up the FastAPI project structure, establish core middleware (logging, error handling), request handling, database connections (`asyncpg`), and implement initial basic DB scripts.
+![phase 1](https://raw.githubusercontent.com/Shashwat-Darshan/ihr-django/master/images/phase-1.png)
+* **Tasks:**
+    * Create FastAPI project skeleton following best practices (e.g., `/app`, `/core`, `/api`, `/schemas`, `/db_scripts`, `/sql`).
+    * Implement environment configuration management (e.g., using Pydantic settings).
+    * Set up Docker containers (FastAPI app, PostgreSQL) via `docker-compose.yml`.
+    * Implement `asyncpg` connection pool setup and dependency injection for routes.
+    * Develop initial `db_scripts/init_db.sh` to create the database and roles.
+    * Implement basic middleware (e.g., logging requests).
+    * Create a basic health check endpoint.
+* **Key Challenges:** Ensuring seamless configuration transition, handling initial async requests correctly, setting up robust DB connection management.
+
+
+
+### **Phase 2: Database Scripting & Schema Conversion (June 16 - July 5, 2025)**
+
+* **Goals:** Convert Django models to SQL schema files, develop and test robust Bash scripts for DB management (init, migrate, backup, seed) with error handling and state tracking, implement dry-run for migrations.
+![phase 2](https://raw.githubusercontent.com/Shashwat-Darshan/ihr-django/master/images/phase-2.png)
+* **Tasks:**
+    * Translate Django models into `sql/schema/*.sql` files (tables, indexes, constraints).
+    * Develop `db_scripts/migrate_db.sh`:
+        * Implement logic to detect and apply new migrations from `sql/migrations/`.
+        * Include robust error handling (`set -e`, explicit checks).
+        * Implement state tracking (e.g., `schema_migrations` table).
+        * Implement `--dry-run` functionality as shown previously.
+        * Consider basic rollback mechanisms or instructions for manual rollback.
+    * Develop `db_scripts/backup_db.sh` (using `pg_dump`) and potentially `restore_db.sh` (`psql`).
+    * Develop `db_scripts/seed_db.sh` for populating initial/test data.
+    * Define Pydantic models in `/schemas` mirroring the SQL structure for validation.
+    * Thoroughly test all Bash scripts.
+* **Challenges:** Ensuring Bash script robustness, correct state management for migrations, handling potential large datasets during seeding/migrations efficiently, translating complex Django model relationships/logic to SQL/Bash.
+
+
+
+### **Phase 3: API Endpoint Migration (July 6 - July 25, 2025)**
+
+* **Goals:** Convert key Django API views into FastAPI endpoints, implement asynchronous request handling using `asyncpg`, ensure feature parity and API compatibility.
+![phase 3](https://raw.githubusercontent.com/Shashwat-Darshan/ihr-django/master/images/phase-3.png)
+* **Tasks:**
+    * Migrate Django API views (e.g., from `views.py`) to FastAPI routers/endpoints (`/api/v1/`).
+    * Replace Django ORM calls with asynchronous `asyncpg` queries.
+    * Implement request validation using Pydantic models defined in Phase 2.
+    * Implement response serialization using `response_model` with Pydantic.
+    * Ensure error responses are handled gracefully and consistently.
+    * Validate migrated API behavior against the existing Django system (functional parity).
+* **Challenges:** Maintaining 100% API consistency, handling potential subtle differences in behavior between sync Django ORM and async raw SQL (`asyncpg`), debugging async code effectively.
+
+
+
+### **Phase 4: Authentication & Security (July 26 - August 5, 2025)**
+
+* **Goals:** Implement JWT authentication matching existing functionality, migrate permissions logic, enforce security best practices.
+![phase 4](https://raw.githubusercontent.com/Shashwat-Darshan/ihr-django/master/images/phase-4.png)
+* **Tasks:**
+    * Implement JWT token generation (on login) and validation (middleware/dependency) using `python-jose`.
+    * Implement password hashing/verification using `passlib`.
+    * Create authentication routes (`/login`, potentially `/register` if needed).
+    * Implement dependency functions to get current user from JWT and enforce permissions.
+    * Migrate existing user roles/permissions logic (this might involve DB checks via `asyncpg`).
+    * Implement security enhancements: input validation (via Pydantic), security headers (via middleware), basic rate limiting (e.g., using `slowapi` if time permits).
+* **Challenges:** Ensuring seamless security transition without breaking existing client workflows, mapping Django's auth system concepts to FastAPI/JWT, securely handling secrets.
+
+
+
+### **Phase 5: Optimization & Deployment Prep (August 6 - August 15, 2025)**
+
+* **Goals:** Implement Redis caching for key endpoints, conduct performance benchmarking, finalize Docker setup, finalize API documentation.
+![phase 5](https://raw.githubusercontent.com/Shashwat-Darshan/ihr-django/master/images/phase-5.png)
+* **Tasks:**
+    * Integrate Redis connection using a library like `redis-py` (async support).
+    * Identify high-traffic/slow endpoints suitable for caching.
+    * Implement caching logic (e.g., decorator or middleware) for selected endpoints, including cache invalidation strategies where necessary.
+    * Conduct performance benchmarking and load testing (e.g., using `locust`) against targets (<200ms).
+    * Analyze results and perform basic query optimization if needed.
+    * Finalize `Dockerfile` and `docker-compose.yml` for production-like setup (consider multi-stage builds, non-root user).
+    * Ensure auto-generated OpenAPI documentation is accurate and user-friendly.
+    * Write/finalize user documentation (README, `DATABASE.md` on script usage).
+* **Challenges:** Implementing effective caching strategies with proper invalidation, setting up realistic load tests, ensuring Docker setup is efficient and secure.
+
+
+
+### **Final Evaluation (August 16 - August 25, 2025)**
+
+* **Goals:** Validate migration success against objectives, perform final testing and documentation updates, address mentor feedback, submit final deliverables.
+
+* **Tasks:**
+    * Conduct thorough end-to-end integration tests.
+    * Perform final load testing to confirm performance targets.
+    * Complete all documentation (code comments, README, API docs, migration guide).
+    * Ensure FastAPI’s OpenAPI documentation is accurate and reflects all endpoints/schemas.
+    * Address any remaining bugs or issues identified during testing/mentor reviews.
+    * Prepare final code submission according to GSoC guidelines.
+    * Gather final mentor feedback and incorporate necessary refinements.
+* **Challenges:** Ensuring all edge cases are tested, completing final documentation thoroughly, managing time for final refinements.
 
-- Develop a thorough understanding of the existing Django 2.2 codebase, including its models, API endpoints, and database structure.
-- Engage closely with mentors to discuss detailed migration strategies, clarify any ambiguities, and align on the preferred approach for database interactions (primarily Bash scripts and raw SQL).
-- Document the current API behavior, dependencies, and identify key challenges, notably understanding the existing codebase.
-- Set up the initial development environment and explore the FastAPI framework in the context of the existing IHR application.
-- Define key milestones and deliverables with mentor input.
 
-#### **Tasks:**
 
-- Study and analyze existing models (`models.py`), including `Hegemony`, `ASN`, `Country`, and database caching strategies.
-- Review API endpoints in `views.py` such as network monitoring and hegemony analysis.
-- Document authentication methods, database relationships, and performance bottlenecks.
-- Prepare a high-level migration roadmap with mentors.
-
-#### **Challenges:**
-
-- Understanding the complex business logic in the existing Django codebase.
-- Identifying potential pitfalls in migrating monolithic components.
-
----
-
-## **Migration Strategy**
-
-A complete switch to FastAPI is the preferred migration strategy.
-
-### **Component-wise Migration**
-
-#### **Database Layer (Primarily Bash-based approach)**
-
-##### **Schema Initialization**
-
-```bash
-#!/bin/bash
-export PGPASSWORD=$POSTGRES_PASSWORD
-psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -f /sql/init.sql
-```
-
-##### **Migrations**
-
-```bash
-#!/bin/bash
-psql -U $POSTGRES_USER -d $POSTGRES_DB -f /migrations/001_create_hegemony_table.sql
-```
-
-##### **Data Seeding**
-
-```bash
-#!/bin/bash
-psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" <<EOF
-INSERT INTO hegemony (asn, timebin) VALUES (12345, NOW());
--- Add more seed data as needed
-EOF
-```
-
-#### **API Endpoints**
-
-```python
-from fastapi import APIRouter, Depends
-from typing import List
-
-router = APIRouter()
-
-@router.get("/hegemony/", response_model=List[dict])
-async def get_hegemony(timebin: str = None):
-    # Migrate existing Django view logic to async
-    # Add caching and optimized database queries using raw SQL
-```
-
-### **3. Migration Phases**
-
-```markdown
-Phase 1: Core Setup (June 2 - June 15, 2025)
-- Set up the FastAPI project structure
-- Establish core middleware and basic request handling
-- Configure database connection setup, focusing on PostgreSQL
-- Implement the initial basic API endpoints to establish a functional foundation
-- Set up Docker containers for FastAPI and PostgreSQL
-```
-
-### **4. Key Components to Migrate**
-
-```markdown
-1. Database Management:
-   - Schema initialization (`init_db.sh`)
-   - Migrations (`migrate_db.sh`)
-   - Backup and restoration (`backup_db.sh`, `restore_db.sh`)
-   - Database seeding (`seed_db.sh`)
-
-2. API Endpoints:
-   - `/hegemony/`
-   - `/hegemony/countries/`
-   - `/hegemony/asns/`
-   - User management endpoints
-
-3. Authentication:
-   - Token-based auth → JWT
-   - User sessions
-   - Permissions
-```
-
-### **5. Technical Considerations**
-
-```python
-# Requirements
-fastapi>=0.100.0
-pydantic>=2.0.0
-python-jose[cryptography]
-passlib[bcrypt]
-redis>=4.5.0
-asyncpg>=0.29.0 # For asynchronous PostgreSQL interactions
-```
-
-### Phase 1: Core Setup (June 2 - June 15, 2025)
-
-#### Goals for Phase 1
-
-- Establish the fundamental structure of the FastAPI project.
-- Implement core middleware for request handling and error management.
-- Configure database connectivity to PostgreSQL.
-- Migrate a few initial API endpoints to ensure a working base.
-- Set up basic Docker containers for the FastAPI application and the PostgreSQL database.
-
-#### Specific Tasks
-
-- Create FastAPI project skeleton:
-
-  ```
-  ihr_fastapi/
-  ├── app/
-  │   ├── core/
-  │   │   ├── config.py      # Configuration management
-  │   │   └── security.py    # Authentication setup
-  │   ├── api/
-  │   │   └── v1/           # API versioning
-  │   ├── validation/      # Pydantic models for request/response validation
-  │   └── schemas/          # Pydantic models
-  ```
-
-- Implement environment configurations for PostgreSQL, Redis caching, and authentication.
-- Set up Docker containers for FastAPI and PostgreSQL.
-- Implement initial API endpoints and middleware.
-
-#### Key Challenges
-
-- Ensuring a smooth transition of configurations from Django settings.
-- Handling initial API requests asynchronously.
-
----
-
-### Phase 2: Database Scripting & Schema Conversion (June 16 - July 5, 2025)
-
-#### Goals
-
-- Convert Django models to SQL schema definitions for use with Bash scripts, ensuring the schema remains as-is.
-- Develop, test, and version-control Bash scripts for database initialization, schema migrations (with dry-run and rollback considerations), backups, and seeding.
-- Define Pydantic models for data validation and serialization.
-
-#### Tasks
-
-- Translate relevant Django models into SQL schema files, maintaining the existing schema.
-- Develop and rigorously test Bash scripts for:
-  - Database initialization (`init_db.sh`)
-  - Schema migrations (`migrate_db.sh`) with considerations for dry-run mode and manual rollback examples.
-  - Database backups (`backup_db.sh`) and restoration (`restore_db.sh`).
-  - Database seeding (`seed_db.sh`).
-- Implement data validation using Pydantic models.
-
-#### Challenges
-
-- Ensuring database schema integrity and the correctness of migration scripts.
-- Understanding the existing database structure and relationships.
-
----
-
-### Phase 3: API Migration (July 6 - July 25, 2025)
-
-#### Goals
-
-- Migrate all Django API views to FastAPI, prioritizing the most critical endpoints. Ensure that all API endpoints remain 100% compatible with the existing Django API.
-- Implement asynchronous request handling for improved performance.
-- Ensure functional parity with the existing IHR endpoints.
-
-#### Tasks
-
-- Convert all Django API views to their equivalents in FastAPI.
-- Implement request validation and response models using Pydantic.
-- Integrate with the database using asynchronous PostgreSQL interactions (asyncpg) and raw SQL.
-- Validate the behavior of migrated API endpoints against the existing Django system to ensure 100% compatibility.
-
-#### Challenges
-
-- Maintaining API consistency during the migration.
-- Addressing any unexpected behavior arising from asynchronous execution.
-- Ensuring complete compatibility with the existing API endpoints.
-
----
-
-### Phase 4: Authentication & Security (July 26 - August 5, 2025)
-
-#### Goals
-
-- Implement JWT-based authentication in FastAPI to match the existing Django token-based system.
-- Enforce standard security best practices.
-
-#### Tasks
-
-- Implement FastAPI's support for JWT to replicate the current Django authentication mechanism.
-- Implement security measures such as rate limiting and basic input sanitization.
-
-#### Challenges
-
-- Ensuring a seamless transition of authentication without disrupting existing workflows.
-- Strengthening the security posture of the application while maintaining usability.
-
----
-
-### Phase 5: Optimization & Deployment (August 6 - August 15, 2025)
-
-#### Goals
-
-- Implement Redis caching for frequently accessed API responses.
-- Conduct basic performance benchmarking to identify potential bottlenecks.
-- Finalize the Docker Compose setup for deployment.
-- Update and finalize API documentation using OpenAPI.
-
-#### Tasks
-
-- Integrate Redis for caching frequently accessed data.
-- Perform basic load testing to assess the performance of key API endpoints.
-- Finalize the Docker Compose configuration for deploying the FastAPI application along with its dependencies.
-- Ensure the automatically generated OpenAPI documentation is accurate and comprehensive.
-
-#### Challenges
-
-- Ensuring that performance optimizations are effective.
-- Finalizing the deployment strategy in a way that minimizes potential disruption.
-
----
-
-### Final Evaluation (August 16 - August 25, 2025)
-
-#### Goals
-
-- Thoroughly validate the success of the migration.
-- Perform final integration and load testing.
-- Complete all necessary documentation updates.
-- Submit the final deliverables for the project.
-
-#### Tasks
-
-- Conduct comprehensive integration tests to verify the functionality of all migrated API endpoints.
-- Perform final load testing to simulate high traffic volumes and ensure stability.
-- Document all project aspects, including the migration process and API specifications.
-- Ensure the FastAPI’s OpenAPI documentation is accurate and user-friendly.
-- Gather final feedback from mentors and incorporate any necessary refinements.
-
-#### Challenges
-
-- Ensuring that all edge cases have been tested and addressed.
-- Completing all final refinements within the allocated timeframe.
-
----
-
-## **Project Timeline Overview**
+### **Project Timeline Overview Table**
 
 | **Phase** | **Tasks** | **Timeline** | **Estimated Hours** |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------- |
-| **Phase 1: Core Setup** | - Develop FastAPI skeleton- Configure Docker for containerization- Implement a basic healthcheck endpoint | June 2 – June 15, 2025 | 25h |
-| **Phase 2: Database Scripting & Schema Conversion** | - Convert Django models to an SQL schema- Develop, test, and version-control Bash scripts for database management (initialization, migrations with dry-run and manual rollback examples, backups, and restoration)- Implement data validation using Pydantic models | June 16 – July 5, 2025 | 40h |
-| **Phase 3: API Migration** | - Refactor all API endpoints from Django to FastAPI- Implement asynchronous request handling- Integrate with the database using asyncpg and raw SQL- Implement comprehensive response validation and error handling integrated with the new database scripts | July 6 – July 25, 2025 | 45h |
-| **Phase 4: Authentication & Security** | - Implement JWT-based authentication to match the existing Django token-based system- Integrate basic rate limiting and monitoring | July 26 – August 5, 2025 | 30h |
-| **Phase 5: Optimization & Deployment** | - Implement Redis caching for key API endpoints- Conduct basic load testing and performance benchmarking- Finalize Docker Compose setup- Finalize and update documentation (including DATABASE.md with backup/restore instructions) | August 6 – August 25, 2025 | 35h |
+| :---------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------ | :------------------ |
+| **Phase 1: Core Setup** | \- Develop FastAPI skeleton<br/>- Configure Docker/Docker Compose<br/>- Implement basic healthcheck/logging/error handling<br/>- Setup `asyncpg` connection pool<br/>- Initial DB init script                                                                                                   | June 2 – June 15, 2025    | 25h                 |
+| **Phase 2: Database Scripting & Schema Conversion** | \- Convert Django models to an SQL schema<br/>- Develop, test, and version-control robust Bash scripts for database management (init, migrate w/ state & dry-run, backup, seed)<br/>- Implement data validation using Pydantic models                                                                        | June 16 – July 5, 2025    | 40h                 |
+| **Phase 3: API Migration** | \- Refactor all API endpoints from Django to FastAPI<br/>- Implement asynchronous request handling (`asyncpg`)<br/>- Implement comprehensive request/response validation (Pydantic)<br/>- Ensure API compatibility                                                                                  | July 6 – July 25, 2025    | 45h                 |
+| **Phase 4: Authentication & Security** | \- Implement JWT-based authentication<br/>- Integrate permissions logic<br/>- Implement security best practices (headers, input validation)<br/>- Basic rate limiting (if feasible)                                                                                                               | July 26 – August 5, 2025  | 30h                 |
+| **Phase 5: Optimization & Deployment Prep** | \- Implement Redis caching for key API endpoints<br/>- Conduct basic load testing and performance benchmarking<br/>- Finalize Docker Compose setup<br/>- Finalize and update documentation (README, API docs, `DATABASE.md`)                                                                            | August 6 – August 15, 2025 | 35h                 |
+| **Final Evaluation & Wrap-up** | \- Final Testing, Documentation Polish, Address Feedback, Code Submission                                                                                                                                                                                                                        | August 16 – August 25, 2025 | *(Buffer/Testing)* |
+| **Total Estimated Hours** |                                                                                                                                                                                                                                                                                            |                           | **175h** |
 
 ---
 
-### **VIII. Unit Testing Strategy**
+## **VIII. Unit Testing Strategy**
 
 A robust testing framework is crucial for the success of this migration. The testing strategy will include:
 
-- **Framework:** Utilize `pytest` along with `pytest-asyncio` to support asynchronous testing.
-- **API Testing:** Validate that each FastAPI route behaves as expected and meets performance benchmarks.
-- **Database Testing:** Ensure data integrity post-migration by comparing outcomes with baseline results from the current Django system.
-- **Performance Testing:** Conduct load tests to confirm that the new endpoints achieve acceptable response times. Specific targets will be defined in collaboration with mentors.
-- **Security Testing:** Validate the effectiveness of the new authentication mechanisms and error-handling routines.
-- **Data Consistency Testing:** Implement tests to compare the data returned by the existing Django API endpoints with the data returned by the migrated FastAPI endpoints to ensure 100% parity.
+* **Framework:** Utilize `pytest` along with `pytest-asyncio` to support asynchronous testing.
+* **API Testing:** Employ tools like `httpx` within `pytest` to make requests to the FastAPI test client, validating routes, request/response formats, status codes, and adherence to the OpenAPI schema.
+* **Database Testing:** Ensure data integrity post-migration by comparing outcomes with baseline results. Test database interaction logic, potentially using test databases or transaction rollbacks. Test the functionality of the Bash DB management scripts (e.g., does init create the schema? does migrate apply changes correctly?).
+* **Performance Testing:** Conduct load tests using tools like `locust` or `k6` to confirm that the new endpoints meet performance targets (e.g., 95% response times under **200ms** under expected load).
+* **Security Testing:** Validate the effectiveness of JWT authentication (token validation, expiry, protected routes) and other security measures like input validation.
 
-```python
-# tests/test_data_consistency.py
-import requests
-from fastapi.testclient import TestClient
+Each test case will be thoroughly documented. Fixtures (`pytest` fixtures) will be used extensively to set up necessary environments (like database connections, test data) and ensure test reproducibility.
 
-# Assuming 'test_client' is an instance of TestClient for your FastAPI app
-# and 'old_api_url' is the base URL of the existing Django API
 
-async def test_hegemony_endpoint_parity(test_client, old_api_url):
-    # Get data from Django API
-    try:
-        django_response = requests.get(f"{old_api_url}/hegemony/") # Adjust endpoint as needed
-        django_response.raise_for_status() # Raise an exception for bad status codes
-        django_data = django_response.json()
-    except requests.exceptions.RequestException as e:
-        assert False, f"Error fetching data from Django API: {e}"
 
-    # Get data from migrated FastAPI
-    fastapi_response = test_client.get("/hegemony/")
-    fastapi_response.raise_for_status()
-    fastapi_data = fastapi_response.json()
+## **IX. My Progress and Research**
 
-    assert django_data == fastapi_data
-```
+To ensure I could create a detailed and viable proposal, I have dedicated significant time over the past few weeks to researching the project requirements and the existing IHR codebase.
 
-Each test case will be thoroughly documented, with fixtures set up to simulate the necessary environments and ensure reproducibility.
+My preparation involved:
 
-## **IX. Expectations from Mentor**
+1.  **Exploring the Existing Codebase:** I have forked the `ihr-django` repository to my personal GitHub account: [My fork](https://github.com/Shashwat-Darshan/ihr-django). Within this fork, I have been actively exploring the current Django 2.2 application, focusing on understanding the structure of the models (`models.py`), the logic within the views (`views.py`), the existing database interaction patterns, authentication mechanisms, and identifying key dependencies. This hands-on exploration has helped me grasp the complexities involved in the migration.
+2.  **Researching Target Technologies:** I have refreshed my knowledge and researched best practices for FastAPI, particularly concerning asynchronous operations with `asyncpg` for PostgreSQL interaction, structuring larger FastAPI applications, and implementing JWT authentication securely using `python-jose` and `passlib`.
+3.  **Investigating the Database Scripting Approach:** Given the requirement to use Bash scripts for database management, I researched techniques for writing robust and maintainable shell scripts for tasks like schema initialization, migration application (including state tracking and error handling, similar to concepts in tools like Alembic or Flyway, but implemented in Bash), and backups using tools like `psql` and `pg_dump`.
+4.  **Dockerization:** I reviewed best practices for containerizing FastAPI applications using Docker and Docker Compose, including multi-stage builds and handling environment variables.
 
-I am always looking to learn and improve upon my mistakes. I would like my mentors to provide constructive feedback, so we can work together to make my project better. This gives me the opportunity to collaborate with them and learn from their experiences as professionals in this field. I would also love to understand their motivations for working with the IHR and learn about their career journeys.
+This preliminary research and hands-on exploration of the codebase have directly informed the detailed migration strategy, timeline, and deliverables outlined in this proposal, giving me confidence in the feasibility of the plan.
 
-## **X. Other Commitments**
+I am committed to delivering a high-quality and well-documented proposal that aligns with the project requirements and my understanding of the existing codebase.
 
-During the GSoC period, my primary focus will be on this project. I do not have any full-time commitments that would interfere with my ability to complete the expected deliverables. However, I may occasionally work on personal development projects or engage in my college studies, especially during exam periods.
 
-## **XI. Future Plans After GSoC**
+## **X. Expectations from Mentor**
 
-After the GSoC period is over, I plan to continue contributing to the IHR project by maintaining and improving the backend infrastructure. I am also interested in exploring opportunities in backend system architecture, distributed computing, and cloud-native development. Additionally, I would love to mentor future GSoC participants and help them navigate the program, as I will have firsthand experience of the challenges and learning opportunities it offers.
+I am always looking to learn and improve upon my mistakes. I would like my mentors to provide constructive feedback, so we can work together to make my project better. This gives me the opportunity to collaborate with them and learn from their experiences as professionals in this field. I am particularly interested in discussing the practicalities and potential trade-offs of the Bash-based database management approach. I would also love to understand their motivations for working with the IHR and learn about their career journeys.
 
----
+
+
+## **XI. Other Commitments**
+
+During the GSoC period, my primary focus will be on this project. I do not have any full-time commitments that would interfere with my ability to complete the expected deliverables. However, I may occasionally work on personal development projects or engage in my college studies, especially during exam periods. I will ensure transparent communication regarding my availability.
+
+
+
+## **XII. Future Plans After GSoC**
+
+After the GSoC period is over, I plan to continue contributing to the IHR project by maintaining and improving the backend infrastructure, potentially working on items identified in the "Future Work" section like implementing CI/CD pipelines or enhanced monitoring. I am also interested in exploring opportunities in backend system architecture, distributed computing, and cloud-native development. Additionally, I would love to mentor future GSoC participants and help them navigate the program, sharing my firsthand experience of the challenges and learning opportunities it offers.
+
